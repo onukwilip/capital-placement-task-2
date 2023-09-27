@@ -25,7 +25,5 @@ This is the first task (Task 2) of the interview assessment assigned to me by ca
   > To run this project as a container you will need [**Docker**](https://www.docker.com/products/docker-desktop/)
 
   - Run `git clone https://github.com/onukwilip/capital-placement-task-2.git`
-  - Run `docker build -t cp-task-1 .`
-  - Run `docker run -p 3000:3000 -rm -it cp-task-1`
-  - Run `docker build -t d-prism . -f .\prism.Dockerfile`
-  - Run `docker run -p 4010:4010 --rm d-prism`
+  - Run `docker build -t cp-task-2 .`
+  - Run `docker run -p 3000:3000 -rm -it cp-task-2`
