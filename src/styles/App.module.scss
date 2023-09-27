@@ -1,0 +1,70 @@
+@import "./config.scss";
+
+.app {
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  @include flex(stretch, start, 0);
+  background-color: lighten($pry-l-blue, 2.5);
+
+  .side_menu_container {
+    flex: 0;
+    @include media(max, 670px) {
+      display: none;
+    }
+  }
+  .filter_container {
+    flex: 0;
+    @include media(max, 1090px) {
+      display: none;
+    }
+  }
+  .dashboard_container {
+    flex: 1;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+      width: 5px;
+      background-color: $pry-l-blue;
+    }
+    &::-webkit-scrollbar-track {
+      width: 5px;
+      background-color: $pry-l-blue;
+    }
+    &::-webkit-scrollbar-thumb {
+      width: 5px;
+      background-color: $pry-d-blue;
+    }
+  }
+}
+
+.menu_container {
+  display: none;
+  @include media(max, 670px) {
+    border-radius: 5px;
+    background-color: lighten($pry-l-blue, 2.5);
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    height: 100vh;
+  }
+}
+.toogle_menu {
+  display: none;
+  @include media(max, 670px) {
+    display: block;
+    position: fixed;
+    z-index: 11;
+    top: 4rem;
+    right: 1rem;
+    border-radius: 10px;
+    background-color: $pry-d-blue;
+    width: 40px;
+    height: 40px;
+    color: $pry-l-blue;
+    @include flex(center, center, auto);
+  }
+}

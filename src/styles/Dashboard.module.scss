@@ -1,0 +1,227 @@
+@import "./config.scss";
+
+.dashboard {
+    @include flex(start, start, 2rem, column);
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    .header {
+        width: 100%;
+        @include flex(center, space-between, 1rem);
+        .dropdown_container {
+            width: 100%;
+            .auto_complete {
+                width: 400px;
+                background: white;
+                border-radius: 20px !important;
+                div {
+                    border-radius: 20px !important;
+                }
+            }
+            .auto_complete_input {
+                border-radius: 20px !important;
+                color: $pry-d-blue;
+            }
+            .each_dropdown_option {
+                padding: 0.8rem 1rem;
+                cursor: pointer;
+                @include flex(center, space-between, 1rem);
+                .badge {
+                    padding: 0.3rem;
+                    min-width: 60px;
+                    border-radius: 20px;
+                    background-color: #f8f8f8;
+                    text-align: center;
+                    font-size: 14px;
+                }
+                &:hover {
+                    background-color: $pry-l-blue;
+                    color: $pry-d-blue;
+                }
+            }
+        }
+        .media_items {
+            width: 100%;
+            @include flex(center, end, 1rem);
+            padding: 0;
+            list-style-type: none;
+            .each_media_item_icon {
+                padding: 0.5rem;
+                border-radius: 7px;
+                background-color: white;
+                cursor: pointer;
+            }
+            .btn_wrapper {
+                overflow: hidden;
+                border-radius: 10px;
+                @include flex(center, start, 1px);
+                cursor: pointer;
+                span {
+                    display: block;
+                    padding: 0.8rem 1rem;
+                    background: lighten($pry-d-blue, 10);
+                    color: white;
+                }
+                .label {
+                    &::before {
+                        content: "Move to video interview I";
+                        @include media(max, 1550px) {
+                            content: "Move";
+                        }
+                    }
+                }
+            }
+            @include media(max, 450px) {
+                flex-wrap: wrap;
+            }
+        }
+        @include media(max, 1300px) {
+            flex-direction: column;
+            .media_items {
+                justify-content: start;
+            }
+        }
+    }
+    .list_container {
+        width: 100%;
+        .list_component {
+            padding: 1rem;
+            border-radius: 15px;
+            background: white;
+            width: 100%;
+            .list_component_header {
+                width: 100%;
+                .list_component_row {
+                    width: 100%;
+                    padding: 1rem 0;
+                    border-bottom: 1px solid darken($pry-l-blue, 10);
+                    @include flex(center, space-between, 1rem);
+                    .left {
+                        @include flex(center, start, 1rem);
+                        color: $pry-d-blue;
+                    }
+                    .right {
+                        @include flex(center, start, 1rem);
+                        flex-wrap: wrap;
+                        .each_col {
+                            display: block;
+                            padding: 0 1rem;
+                            border-right: 1px solid darken($pry-l-blue, 10);
+                            &:last-of-type {
+                                border-right: none;
+                            }
+                            @include flex(center, start, 0.5rem);
+                            .badge {
+                                padding: 0.3rem;
+                                min-width: 40px;
+                                border-radius: 20px;
+                                background-color: #f8f8f8;
+                                text-align: center;
+                                font-size: 14px;
+                            }
+                            &.active {
+                                color: $pry-d-blue;
+                            }
+                        }
+                    }
+                    flex-wrap: wrap;
+                }
+            }
+            .list_component_body {
+                width: 100%;
+                overflow-y: auto;
+                list-style-type: none;
+                .list_component_row {
+                    width: 100%;
+                    padding: 2rem 0;
+                    border-bottom: 1px solid darken($pry-l-blue, 10);
+                    @include flex(center, space-between, 1rem);
+                    flex-wrap: wrap;
+                    .left {
+                        @include flex(center, start, 1rem);
+                        flex-wrap: wrap;
+                        .initials {
+                            width: 55px;
+                            height: 55px;
+                            border-radius: 50%;
+                            @include flex(center, center, 0);
+                            background-color: $pry-l-blue;
+                            color: darken($pry-l-blue, 10);
+                            font-size: 24px;
+                            font-weight: bold;
+                        }
+                        .details {
+                            @include flex(start, start, 0.5rem, column);
+                            .name {
+                                font-size: 20px;
+                                font-weight: bold;
+                            }
+                            .state {
+                                font-size: 18px;
+                            }
+                            .education {
+                                font-size: 16px;
+                            }
+                            .hash_tag_container {
+                                @include flex(center, start, 0.5rem);
+                                font-size: 12px;
+                                color: $pry-d-blue;
+                            }
+                            .tag_container {
+                                @include flex(center, start, 0.5rem);
+                                font-size: 12px;
+                                span {
+                                    display: block;
+                                    padding: 0.5rem;
+                                    border-radius: 20px;
+                                    background: $pry-l-cyan;
+                                    color: $pry-d-cyan;
+                                }
+                            }
+                        }
+                    }
+                    .right {
+                        @include flex(center, start, 1rem);
+                        flex-wrap: wrap;
+                        .badge {
+                            @include flex(center, start, 0.5rem);
+                            color: $pry-d-blue;
+                            background-color: $pry-l-blue;
+                            padding: 0.5rem 0.8rem;
+                            border-radius: 25px;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.filter_container {
+    display: none;
+    @include media(max, 1090px) {
+        border-radius: 5px;
+        background-color: lighten($pry-l-blue, 2.5);
+        display: block;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 10;
+    }
+}
+.toogle_filter {
+    display: none;
+    @include media(max, 1090px) {
+        display: block;
+        position: fixed;
+        z-index: 11;
+        top: 1rem;
+        right: 1rem;
+        border-radius: 10px;
+        background-color: $pry-d-blue;
+        width: 40px;
+        height: 40px;
+        color: $pry-l-blue;
+        @include flex(center, center, auto);
+    }
+}

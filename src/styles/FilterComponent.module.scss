@@ -1,0 +1,60 @@
+@import "./config.scss";
+
+.filter_component {
+    height: 100%;
+    width: 400px;
+    padding: 1rem;
+    @include flex(start, start, 1.5rem, column);
+    .title {
+        span {
+            display: block;
+            &:first-of-type {
+                font-size: 22px;
+                font-weight: bold;
+                color: $pry-d-blue;
+            }
+        }
+    }
+    .inner_filter_component {
+        width: 100%;
+        @include flex(start, start, 2rem, column);
+        .search_container {
+            width: 100%;
+            .search_parent {
+                width: 100%;
+            }
+            .search {
+                width: 100%;
+                background: white;
+                outline: none !important;
+                border: none !important;
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        .filter_container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            .each_filter {
+                @include flex(center, space-between, 1rem);
+                width: 100%;
+                padding: 1.2rem;
+                background: white;
+                border-bottom: 1px solid lighten($pry-l-blue, 0);
+                .left {
+                    @include flex(center, start, 0.5rem);
+                }
+                .right {
+                    i {
+                        color: $pry-d-blue;
+                    }
+                }
+            }
+        }
+    }
+}
